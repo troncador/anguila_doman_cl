@@ -1,0 +1,12 @@
+http://commons.apache.org/proper/commons-validator/
+http://code.google.com/p/guava-libraries/wiki/GuavaExplained?tm=6
+
+Validaciones, de fechas, números, patrones comunes, etc
+
+
+Errores globales faltan
+
+
+
+Seguridad: !
+http://crackstation.net/hashing-security.htm

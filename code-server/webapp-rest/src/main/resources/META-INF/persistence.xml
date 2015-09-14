@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="principal-unit" transaction-type="RESOURCE_LOCAL">
+		  <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<!-- <provider>org.hibernate.ejb.HibernatePersistence</provider>-->
+		
+		<!--  
+		<class>model.Banner</class>
+		<class>model.Campus</class>
+		<class>model.CoreUser</class>
+		<class>model.CoreUserRecovery</class>
+		<class>model.Event</class>
+		<class>model.FileImage</class>
+		<class>model.FileUpload</class>
+		-->
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<properties>
+			
+			<!--
+			<property name="javax.persistence.jdbc.password" value="fp9zevfb"/>
+			-->	
+			<!--
+			<property name="javax.persistence.jdbc.password" value="qwerty"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/punto"/>
+			<property name="javax.persistence.ddl-generation" value="drop-and-create-tables"/>
+			<property name="javax.persistence.logging.level" value="INFO"/>
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="false"/>
+			<property name="eclipselink.weaving" value="static"/>
+			-->	
+			<!-- 
+			<property name="eclipselink.logging.parameters" value="true"/> 
+			-->
+			
+			
+			<property name="eclipselink.weaving" value="static"/>
+			<property 
+				name="eclipselink.logging.logger"
+                value="cl.molavec.db.eclipselink.CustomSessionLogger"/>
+			
+			<property name="eclipselink.logging.level" value="FINEST" /> 
+			
+		</properties>
+	</persistence-unit>
+	
+</persistence>

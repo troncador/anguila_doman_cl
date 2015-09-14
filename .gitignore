@@ -1,0 +1,9 @@
+*/*/target/
+.springBeans
+.checkstyle
+.classpath
+.project
+.settings
+
+*/*/bower_components/
+*/*/node_modules/
