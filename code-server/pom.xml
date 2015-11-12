@@ -34,7 +34,7 @@
 		</dependency>
 	</dependencies>
 	<modules>
-		<module>webapp-rest</module>	
-		<module>webapp-rest-spring</module>
+		<module>webapp-anguila</module>	
+		<module>webapp-anguila-spring</module>
   </modules>
 </project>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+  <name>Anguila</name>
+  <log>
+    <type>CONSOLE</type>
+    <file>cliente-</file>
+    <path>/var/log/doman/</path>
+  </log>
+  <webapp>
+    <url></url>
+  </webapp>
+  <database>
+    <user>root</user>
+    <pass>mPxb5vpVsmDyAXzOkqH7</pass>
+    <url>jdbc:mysql://localhost:33306/anguila</url>
+  <driver>com.mysql.jdbc.Driver</driver>
+  </database>
+</configuration>

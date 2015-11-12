@@ -4,6 +4,8 @@
 .classpath
 .project
 .settings
+*.mwb.bak
+*.mwb.beforefix
 
 */*/bower_components/
 */*/node_modules/
