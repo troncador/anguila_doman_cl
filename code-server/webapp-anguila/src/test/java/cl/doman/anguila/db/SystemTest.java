@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import cl.doman.anguila.action.SystemAction;
 import cl.doman.anguila.action.UserAction;
 import cl.doman.anguila.db.query.UserQuery;
 import cl.doman.anguila.db.table.User;
@@ -12,8 +13,8 @@ import cl.doman.anguila.init.ConfigInitializator;
 import cl.doman.base.initializator.SystemInitializatorException;
 import cl.doman.db.QueryException;
 
-public class AutentificationTest {
-  static Logger log = LoggerFactory.getLogger(AutentificationTest.class);
+public class SystemTest {
+  static Logger log = LoggerFactory.getLogger(SystemTest.class);
   
   private boolean isInit = false;
 
@@ -29,33 +30,8 @@ public class AutentificationTest {
   @Test
   public void test() throws Exception {
     init();
-    String NAME = "a@a.cl"; 
-    String PASSWORD = "qwerty";
- 
-    UserAction action = new UserAction();
-    UserQuery query = new UserQuery();
-    
-    User user = null;
-    if (!action.exist(NAME)) {
-      user = action.create(NAME, PASSWORD);
-    } else {
-      user = action.get(NAME);
-    }
 
-    if(!action.authentificate(NAME, PASSWORD)){
-      throw new SystemInitializatorException();
-    }
-    if (!action.exist(NAME)) {
-      throw new SystemInitializatorException();
-    }
-    action.delete(user);
-    
-    Integer id = user.getId();
-    user = query.get(id);
-    
-    if (action.exist(NAME)) {
-      throw new SystemInitializatorException();
-    }
-    query.delete(user);
+    SystemAction action = new SystemAction();
+    action.init();
   }
 }

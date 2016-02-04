@@ -22,7 +22,7 @@ public class SystemQuery extends EntityDaoCriteria<SystemConfig,Integer> impleme
 	public SystemQuery(){
 		super(SystemConfig.class);
 	}
-
+	
 	@Override
 	public Integer convert(String id) throws ConvertException {
 		try{

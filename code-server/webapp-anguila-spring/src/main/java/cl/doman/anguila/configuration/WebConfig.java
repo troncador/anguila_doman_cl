@@ -18,14 +18,12 @@ import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.FileTemplateResolver;
 import org.thymeleaf.templateresolver.TemplateResolver;
 
-import cl.doman.anguila.spring.converter.BlogConverter;
 import cl.doman.anguila.spring.converter.CountryConverter;
-
 
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "cl.doman.mmedio.controller")
+@ComponentScan(basePackages = "cl.doman.anguila.controller")
 public class WebConfig extends WebMvcConfigurerAdapter {
 	static Logger log =LoggerFactory.getLogger(WebConfig.class);
 
@@ -34,17 +32,9 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	}
 	
     @Override
-    public void addFormatters(FormatterRegistry formatterRegistry)
-    {
-        formatterRegistry.addConverter(getBlogConverter());
-        formatterRegistry.addConverter(new CountryConverter());
+    public void addFormatters(FormatterRegistry formatterRegistry) {
+
     }
-    @Bean
-    public BlogConverter getBlogConverter()
-    {
-        return new BlogConverter();
-    }
-    
 	
 	@Bean
     //@Description("Thymeleaf template resolver serving HTML 5")

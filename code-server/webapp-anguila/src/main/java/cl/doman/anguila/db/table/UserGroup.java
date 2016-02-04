@@ -20,8 +20,18 @@ import java.util.List;
 public class UserGroup extends StandardTable implements Serializable, BaseTable<Integer>{
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @Column(name = "gid")
+  @Id
+  @Column(name = "gid")
+  @TableGenerator(
+    name="TABLE_GEN_USER_GROUP",
+    table="table_generator", 
+    pkColumnName = "SEQ_NAME", 
+    pkColumnValue = "gid", 
+    valueColumnName = "SEQ_COUNT", 
+    allocationSize = 1,
+    initialValue = 100
+  )
+  @GeneratedValue(strategy = GenerationType.TABLE, generator="TABLE_GEN_USER_GROUP")
     public Integer getId() {
         return this.id;
     }
@@ -89,27 +99,27 @@ public class UserGroup extends StandardTable implements Serializable, BaseTable<
     }
 
 //  //bi-directional many-to-one association to User
-//    @OneToMany(mappedBy="group")
-//  public List<User> getUsers() {
-//      return this.users;
-//  }
+    @OneToMany(mappedBy="group")
+  public List<User> getUsers() {
+      return this.users;
+  }
 
     public void setUsers(List<User> users) {
         this.users = users;
     }
 
-//  public User addUser(User user) {
-//      getUsers().add(user);
-//      user.setGroup(this);
-//
-//      return user;
-//  }
-//
-//  public User removeUser(User user) {
-//      getUsers().remove(user);
-//      user.setGroup(null);
-//
-//      return user;
-//  }
+  public User addUser(User user) {
+      getUsers().add(user);
+      user.setGroup(this);
+
+      return user;
+  }
+
+  public User removeUser(User user) {
+      getUsers().remove(user);
+      user.setGroup(null);
+
+      return user;
+  }
 
 }

@@ -1,36 +1,29 @@
 package cl.doman.anguila.configuration;
 
-import org.apache.commons.mail.EmailException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.awt.Point;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
 
-import cl.doman.anguila.db.i.table.ContactMessage;
-import cl.doman.anguila.mail.ContactMail;
-import cl.doman.anguila.mail.MandoMedioEmailConfig;
-import cl.doman.core.mail.EmailAccount;
-import cl.doman.core.mail.template.EmailTemplateException;
-import cl.doman.db.QueryException;
-import cl.doman.db.model.table.StandardQuery;
+public class Main implements Runnable {
 
-public class Main {
-	static Logger log =LoggerFactory.getLogger(Main.class);
-	public static void main(String[] args) throws QueryException, EmailException, EmailTemplateException {
-		ServletContext.init();
-		
-		StandardQuery<ContactMessage> query = new StandardQuery<ContactMessage>(ContactMessage.class);
-		ContactMessage contactMessage = query.get(1);
-		
-		log.info(contactMessage.getCountry().getName());
-		ContactMail mailSender = new ContactMail(contactMessage);
-		EmailAccount emailAccount = new EmailAccount("benjamin.almarza@gmail.com");
-		mailSender.addTo(emailAccount);
-		mailSender.send();
-		
-		
-		
-		new MandoMedioEmailConfig().getEngine();
-		
+  public static void main(String[] args) {
+    System.out.println("The default locale is: " + Locale.getDefault());
+    Locale[] locales = Locale.getAvailableLocales();
+    System.out.printf("No. of other available locales is: %d, and they are: %n", locales.length);
+    for (Locale locale : locales) {
+      System.out.printf("Locale code: %s and it stands for %s %n", locale, locale.getDisplayName());
+    }
+  }
 
-	}
+
+  @Override
+  public void run() {
+    // TODO Auto-generated method stub
+
+  }
 
 }

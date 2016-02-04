@@ -18,26 +18,40 @@ import java.util.List;
 @Table(name="user")
 @NamedQuery(name="User.findAll", query="SELECT u FROM User u")
 public class User extends StandardTable implements Serializable, BaseTable<Integer> {
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    @Id
-    @Column(name = "uid")
-    public Integer getId() {
-        return this.id;
-    }
+  @Id
+  @Column(name = "uid")
+  @TableGenerator(
+    name="TABLE_GEN_USER",
+    table="table_generator", 
+    pkColumnName = "SEQ_NAME", 
+    pkColumnValue = "uid", 
+    valueColumnName = "SEQ_COUNT", 
+    allocationSize = 1,
+    initialValue = 100
+  )
+  @GeneratedValue(strategy = GenerationType.TABLE, generator="TABLE_GEN_USER")
+  public Integer getId() {
+      return this.id;
+  }
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date creation;
+  public String toString(){
+    return String.format("%d %s: %s", getId(), getUsername(), isDeleted?"deleted":"no deleted");
+  }
+  
+  @Temporal(TemporalType.TIMESTAMP)
+  private Date creation;
 
-    private boolean isConfirmed;
+  private boolean isConfirmed;
 
-    private boolean isDeleted;
+  private boolean isDeleted;
 
-    private boolean isSuspended;
+  private boolean isSuspended;
 
-    private String password;
+  private String password;
 
-    private String username;
+  private String username;
 
   private User user;
 

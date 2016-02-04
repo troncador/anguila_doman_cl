@@ -7,36 +7,15 @@
 		http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
 	<persistence-unit name="principal-unit" transaction-type="RESOURCE_LOCAL">
-		  <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		  <!--  
-		  <class>cl.doman.anguila.db.table.FileUpload</class>
-		  <class>cl.doman.anguila.db.table.FileUploadAccess</class>
-		  <class>cl.doman.anguila.db.table.Group</class>
-		  <class>cl.doman.anguila.db.table.SystemConfig</class>
-		  <class>cl.doman.anguila.db.table.SystemDeploy</class>
-		  <class>cl.doman.anguila.db.table.User</class>
-		  <class>cl.doman.anguila.db.table.UserLoginAttempt</class>
-		  <class>cl.doman.anguila.db.table.UserPassRestore</class>
-		  -->
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
-			<!--
-			<property name="javax.persistence.jdbc.password" value="fp9zevfb"/>
-			-->	
-			<!--
-			<property name="javax.persistence.jdbc.password" value="qwerty"/>
-			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.user" value="root"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/punto"/>
-			<property name="javax.persistence.ddl-generation" value="drop-and-create-tables"/>
-			<property name="javax.persistence.logging.level" value="INFO"/>
-			-->	
 			<!-- 
 			<property name="eclipselink.logging.parameters" value="true"/> 
 			-->
 			<property name="eclipselink.weaving" value="static"/>
 			<property name="eclipselink.logging.logger"
-				value="cl.molavec.db.eclipselink.CustomSessionLogger"/>
+				value="cl.doman.db.eclipselink.CustomSessionLogger"/>
 			
 			<property name="eclipselink.logging.level" value="FINEST" /> 
 			
